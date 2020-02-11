@@ -33,3 +33,8 @@ h6 {
 p {
   @apply .mb-6;
 }
+
+.container {
+  max-width: 800px;
+  @apply .px-6;
+}

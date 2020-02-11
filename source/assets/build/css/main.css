@@ -13995,6 +13995,12 @@ p {
   margin-bottom: 1.5rem;
 }
 
+.container {
+  max-width: 800px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
