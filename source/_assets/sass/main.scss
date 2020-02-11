@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~highlight.js/styles/dracula.css';
+
 h1, h2, h3, h4, h5, h6 {
   @apply .font-header .font-bold .mb-6;
 }
@@ -37,4 +39,26 @@ p {
 .container {
   max-width: 800px;
   @apply .px-6;
+}
+
+.fade {
+  background: linear-gradient(180deg, rgba(242,242,242,0) 0%, rgba(255,255,255,1) 100%);
+  @apply .absolute .bottom-0 .left-0 .right-0 .h-24;
+}
+
+ul, ol {
+  @apply .ml-6 .mb-6;
+}
+
+ul {
+  @apply .list-disc;
+}
+
+ol {
+  @apply .list-decimal;
+}
+
+code {
+  background: #1D1E28;
+  @apply .text-white .font-code .text-sm .mb-6 .px-2 .py-1;
 }
