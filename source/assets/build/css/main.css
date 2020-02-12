@@ -14115,6 +14115,29 @@ code {
   padding-bottom: 0.25rem;
 }
 
+a {
+  color: #4299e1;
+  border-bottom-width: 1px;
+  border-color: #4299e1;
+}
+
+::-moz-selection {
+  background-color: #f56565;
+  color: #fff;
+}
+
+::selection {
+  background-color: #f56565;
+  color: #fff;
+}
+
+.author-photo {
+  border-radius: 9999px;
+  -webkit-filter: grayscale(50%);
+          filter: grayscale(50%);
+  width: 200px;
+}
+
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;

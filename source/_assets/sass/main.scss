@@ -62,3 +62,17 @@ code {
   background: #1D1E28;
   @apply .text-white .font-code .text-sm .mb-6 .px-2 .py-1;
 }
+
+a {
+  @apply .text-blue-500 .border-b .border-blue-500;
+}
+
+::selection {
+  @apply .bg-red-500 .text-white;
+}
+
+.author-photo {
+  @apply .rounded-full;
+  filter: grayscale(50%);
+  width: 200px;
+}
