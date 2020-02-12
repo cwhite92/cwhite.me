@@ -14133,9 +14133,12 @@ a {
 
 .author-photo {
   border-radius: 9999px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
   -webkit-filter: grayscale(50%);
           filter: grayscale(50%);
-  width: 200px;
+  width: 100px;
 }
 
 @media (min-width: 640px){

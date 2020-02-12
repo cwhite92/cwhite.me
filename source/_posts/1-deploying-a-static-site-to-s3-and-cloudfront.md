@@ -3,7 +3,7 @@ extends: _layouts.post
 title: Deploying a Static Site to S3 and CloudFront
 slug: deploying-a-static-site-to-s3-and-cloudfront
 author: Chris White
-date: 2019-01-10
+date: 2016-01-10
 section: content
 ---
 

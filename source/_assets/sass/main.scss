@@ -72,7 +72,7 @@ a {
 }
 
 .author-photo {
-  @apply .rounded-full;
+  @apply .rounded-full .mx-auto .mb-6;
   filter: grayscale(50%);
-  width: 200px;
+  width: 100px;
 }
