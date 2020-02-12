@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 const build = require('./tasks/build.js');
 const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
 mix.disableSuccessNotifications();
 mix.setPublicPath('source/assets/build');
@@ -17,5 +18,11 @@ mix.js('source/_assets/js/main.js', 'js')
     .options({
         processCssUrls: false,
         postCss: [ tailwindcss('./tailwind.config.js') ],
+    })
+    .purgeCss({
+        enabled: true,
+        content: [
+            'source/**/*.php',
+        ]
     })
     .version();
