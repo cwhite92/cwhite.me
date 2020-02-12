@@ -217,6 +217,7 @@ img {
 
 
 h1,
+h2,
 p {
   margin: 0;
 }
@@ -295,7 +296,8 @@ img {
   border-style: solid;
 }
 
-h1 {
+h1,
+h2 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -391,12 +393,24 @@ img {
   background-color: #e53e3e;
 }
 
+.bg-green-900{
+  background-color: #22543d;
+}
+
 .border-gray-300{
   border-color: #e2e8f0;
 }
 
+.border-green-400{
+  border-color: #68d391;
+}
+
 .border-none{
   border-style: none;
+}
+
+.border-2{
+  border-width: 2px;
 }
 
 .border-b{
@@ -413,6 +427,18 @@ img {
 
 .flex-col{
   flex-direction: column;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.font-home{
+  font-family: Cantora One, sans-serif;
 }
 
 .font-body{
@@ -445,12 +471,24 @@ img {
   margin-bottom: 0.5rem;
 }
 
+.mr-6{
+  margin-right: 1.5rem;
+}
+
 .mb-6{
   margin-bottom: 1.5rem;
 }
 
+.mb-12{
+  margin-bottom: 3rem;
+}
+
 .-ml-4{
   margin-left: -1rem;
+}
+
+.-mt-10{
+  margin-top: -2.5rem;
 }
 
 .min-h-screen{
@@ -463,6 +501,16 @@ img {
 
 .p-4{
   padding: 1rem;
+}
+
+.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .fixed{
@@ -493,19 +541,43 @@ img {
   color: #cbd5e0;
 }
 
+.text-green-400{
+  color: #68d391;
+}
+
+.text-green-600{
+  color: #38a169;
+}
+
 .text-lg{
   font-size: 1.125rem;
+}
+
+.text-2xl{
+  font-size: 1.5rem;
 }
 
 .text-3xl{
   font-size: 1.875rem;
 }
 
+.text-6xl{
+  font-size: 4rem;
+}
+
+.tracking-tight{
+  letter-spacing: -0.025em;
+}
+
+.tracking-widest{
+  letter-spacing: 0.1em;
+}
+
 .w-full{
   width: 100%;
 }
 
-h1 {
+h1, h2 {
   font-family: Libre Baskerville, serif;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -513,6 +585,10 @@ h1 {
 
 h1 {
   font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
 }
 
 p {
@@ -558,4 +634,12 @@ a {
   -webkit-filter: grayscale(50%);
           filter: grayscale(50%);
   width: 100px;
+}
+
+.bg-forest {
+  background-image: url("/assets/images/forest.jpg");
+  background-color: #1d801f;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
 }

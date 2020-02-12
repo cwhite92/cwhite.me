@@ -76,3 +76,10 @@ a {
   filter: grayscale(50%);
   width: 100px;
 }
+
+.bg-forest {
+  background-image: url('/assets/images/forest.jpg');
+  background-color: #1d801f;
+  background-blend-mode: multiply;
+  @apply .bg-cover .bg-center;
+}
