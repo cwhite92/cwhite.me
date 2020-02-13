@@ -83,3 +83,7 @@ a {
   background-blend-mode: multiply;
   @apply .bg-cover .bg-center;
 }
+
+.post img {
+  @apply .p-6 .mx-auto;
+}

@@ -4,15 +4,18 @@
     @include('_partials.nav')
 
     <div class="container mx-auto">
-        <h1>{{ $page->title }}</h1>
+        {{-- TODO: <article> tag? --}}
+        <div class="post">
+            <h1>{{ $page->title }}</h1>
 
-        @yield('content')
+            @yield('content')
 
-        <div class="text-center my-32">
-            <div class="p-2 bg-white inline-block">
-                <svg class="text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm8 18l-2-1c-2 0-5-1-4-3 4-6 1-9-2-9s-6 3-2 9c1 2-2 3-4 3l-2 1-2-6a10 10 0 1118 6z"/></svg>
+            <div class="text-center my-32">
+                <div class="p-2 bg-white inline-block">
+                    <svg class="text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm8 18l-2-1c-2 0-5-1-4-3 4-6 1-9-2-9s-6 3-2 9c1 2-2 3-4 3l-2 1-2-6a10 10 0 1118 6z"/></svg>
+                </div>
+                <div class="h-px w-full bg-gray-300" style="margin-top: -26px;"></div>
             </div>
-            <div class="h-px w-full bg-gray-300" style="margin-top: -26px;"></div>
         </div>
 
         <div class="flex flex-col text-center">

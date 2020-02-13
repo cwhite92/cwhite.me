@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-red-600 min-h-screen">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Source+Sans+Pro:400,400i,700,700i|Source+Code+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=d0254b4c61cf71bde8a4">
+    </head>
+    <body class="font-body text-lg bg-white min-h-screen">
+        <div class="w-full h-1 bg-red-600 fixed top-0"></div>
+
+            <div class="border-b border-gray-300 mb-6">
+    <div class="container mx-auto">
+        <a href="/" class="inline-block p-4 -ml-4 text-black border-none">Home</a>
+        <a href="/blog" class="inline-block p-4 text-black border-none">Blog</a>
+        <a href="/about" class="inline-block p-4 text-black border-none">About</a>
+        <a href="/contact" class="inline-block p-4 text-black border-none">Contact</a>
+    </div>
+</div>
+
+    <div class="container mx-auto">
+        <h1>Deploying a Static Site to S3 and CloudFront</h1>
+
+        <p><strong>Note:</strong> this article is old and no longer reflects how this website is served to the internet, but I'm leaving it in place in case it's useful to somebody. 🙂</p>
+
+<p>How long did it take for <a href="https://en.m.wikipedia.org/wiki/Time_to_first_byte">TTFB</a>? If it's anything more than 100ms, let me know, as I have some complaining to do. Thanks to a combination of S3 object storage, the CloudFront CDN and Let's Encrypt, this site is served from nearly 40 edge locations from all around the world over HTTPS. Hopefully one of those is pretty close to you, allowing extremely low latency and lightning quick page loads (about ~30ms on my end). Here's how to set all that up for yourself.</p>
+
+<p>To briefly summarise, we'll be:</p>
+
+<ul>
+<li>Deploying our static site to Amazon S3</li>
+<li>Setting up a CloudFront distribution</li>
+<li>Setting up a managed zone with Route 53</li>
+<li>Securing our site with a free HTTPS certificate from Let's Encrypt</li>
+</ul>
+
+<h2>Prerequisites</h2>
+
+<h3>AWS Command Line Interface</h3>
+
+<p>There are a couple prerequisite steps we’ll need to take before we can proceed. We’ll be using the AWS command line interface, so we need to go ahead and install that first. I run Linux, so the commands from this point on will cater to that, but all of this should be achievable on other operating systems as well (I just won’t show you how 😄).</p>
+
+<pre><code>wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+</code></pre>
+
+<p>Go ahead and type <code>aws --version</code> into your terminal, you should see something along the lines of:</p>
+
+<pre><code>chris@main:~$ aws --version
+aws-cli/1.9.17 Python/2.7.10 Linux/4.2.0-23-generic botocore/1.3.17
+</code></pre>
+
+<h3>Creating an IAM user and giving it the required permissions</h3>
+
+<p>The AWS command line interface is installed, but we don’t currently have a user to use it with. We need to create a user and give it the relevent permissions to carry out the actions we’ll do later on.</p>
+
+<ol>
+<li>Browse to the IAM Management Console, and click “Users” on the left hand side.</li>
+<li>Click “Create New Users”, and enter your desired username (I used “chris”).</li>
+<li>Copy the access credentials that you’re presented with, and save them somewhere safe. We’ll need them in a minute.</li>
+<li>Click “Policies” on the left hand side, and use the filter to find the following policies. After finding each one, select it and click “Policy Actions” at the top, then click “Attach”. Find the user you created earlier and attach the policy to them.
+
+<ol>
+<li>IAMFullAccess</li>
+<li>AmazonS3FullAccess</li>
+<li>CloudFrontFullAccess</li>
+</ol></li>
+<li>Back in your terminal, run aws configure, and you’ll be prompted to enter the access credentials that you saved in step 3. You only have to enter these once, they’ll be saved for future use.</li>
+</ol>
+
+<h3>Deploying our static site to Amazon S3</h3>
+
+<p>S3 is what we’ll be using to store ther static files that make up our website. It will be the origin of the CloudFront distribution, meaning that when a request comes in from a visitor it will first go to CloudFront, and if CloudFront doesn’t have the content cached, it will retrieve the contents from our S3 bucket.</p>
+
+        <div class="text-center my-32">
+            <div class="p-2 bg-white inline-block">
+                <svg class="text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm8 18l-2-1c-2 0-5-1-4-3 4-6 1-9-2-9s-6 3-2 9c1 2-2 3-4 3l-2 1-2-6a10 10 0 1118 6z"/></svg>
+            </div>
+            <div class="h-px w-full bg-gray-300" style="margin-top: -26px;"></div>
+        </div>
+
+        <div class="flex flex-col text-center">
+            <img class="author-photo" src="/assets/images/chris.jpg" alt="Chris White">
+            <div>
+                <span class="font-header text-3xl mb-2">Chris White</span>
+                <p>Chris is a software engineer living in Ottawa. He can usually be found writing web apps with Laravel and trying to avoid JavaScript as much as possible.</p>
+                <p>He works for <a href="https://www.intouchinsight.com/">Intouch Insight</a> during the day, and is the founder of <a href="https://www.loglia.app/">Loglia</a> at night.</p>
+            </div>
+        </div>
+    </div>
+
+        <script src="/assets/build/js/main.js?id=5e601a9e758a19996b24"></script>
+    </body>
+</html>

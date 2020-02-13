@@ -20,9 +20,9 @@ mix.js('source/_assets/js/main.js', 'js')
         postCss: [ tailwindcss('./tailwind.config.js') ],
     })
     .purgeCss({
-        enabled: true,
         content: [
             'source/**/*.php',
+            'node_modules/highlight.js/styles/dracula.css'
         ]
     })
     .version();

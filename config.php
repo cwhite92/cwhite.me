@@ -5,7 +5,7 @@ return [
     'baseUrl' => '',
     'collections' => [
         'posts' => [
-            'path' => '{slug}',
+            'path' => 'blog/{slug}',
             'author' => 'Chris White',
         ],
     ],
