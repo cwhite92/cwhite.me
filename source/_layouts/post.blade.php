@@ -6,7 +6,9 @@
     <div class="container mx-auto">
         {{-- TODO: <article> tag? --}}
         <div class="post">
-            <h1>{{ $page->title }}</h1>
+            <div class="text-center mb-12">
+                <h1>{{ $page->title }}</h1>
+            </div>
 
             @yield('content')
 

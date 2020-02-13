@@ -14077,6 +14077,7 @@ h6 {
 
 p {
   margin-bottom: 1.5rem;
+  text-align: justify;
 }
 
 .container {
@@ -14105,6 +14106,10 @@ ul {
 
 ol {
   list-style-type: decimal;
+}
+
+li {
+  margin-bottom: 0.75rem;
 }
 
 code {
@@ -14157,6 +14162,20 @@ a {
   padding: 1.5rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+blockquote {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-width: 1px;
+  border-color: #e2e8f0;
+  font-style: italic;
+  color: #4a5568;
+  text-align: justify;
+}
+
+blockquote p {
+  margin: 0;
 }
 
 @media (min-width: 640px){

@@ -33,7 +33,7 @@ h6 {
 }
 
 p {
-  @apply .mb-6;
+  @apply .mb-6 .text-justify;
 }
 
 .container {
@@ -56,6 +56,10 @@ ul {
 
 ol {
   @apply .list-decimal;
+}
+
+li {
+  @apply .mb-3;
 }
 
 code {
@@ -86,4 +90,12 @@ a {
 
 .post img {
   @apply .p-6 .mx-auto;
+}
+
+blockquote {
+  @apply .p-6 .mb-6 .border .border-gray-300 .italic .text-gray-700 .text-justify;
+
+  p {
+    @apply .m-0;
+  }
 }
