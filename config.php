@@ -7,6 +7,7 @@ return [
         'posts' => [
             'path' => 'blog/{slug}',
             'author' => 'Chris White',
+            'sort' => '-date',
         ],
     ],
     'excerpt' => function ($page, $characters = 600) {
