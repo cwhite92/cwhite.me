@@ -57,7 +57,7 @@ S3 is what we'll be using to store ther static files that make up our website. I
 1. Browse to the S3 Management Console, and click "Create Bucket" in the top left.
 2. Enter a descriptive name for your new bucket. I went with cwhite.me, since it reflects the domain it'll be hosting. Click "Create".
 3. Open the properties of your new bucket and enable static website hosting. Set the index document to whatever the "homepage" document of your static site is. In my case, and probably yours, that was `index.html`.
-![Static site set up](/assets/images/posts/1/static-site-setup.png)
+![Static site set up](/assets/images/posts/2016-01-10-static-site/static-site-setup.png)
 4. We've enabled static website hosting, but the public won't have access to read any of the files inside our bucket. We need to add a policy to automatically allow public reading, so click the "Permissions" section of the bucket properties window and click "Edit bucket policy". Enter the following, remembering to change your_bucket_name to the name of your bucket:
 
 ```json
@@ -106,12 +106,12 @@ While CloudFront is doing its business, we'll go ahead and set up our DNS. This 
 1. Navigate to the Route 53 Management Console and click "Hosted zones" on the left. Click "Create Hosted Zone".
 2. Enter the domain name that you want to use (mine being cwhite.me). Keep the type at "Public Hosted Zone". Click Create.
 3. After creation, you'll see a list of all the record sets associated with the hosted zone. The ones we're interested in right now are the values under the "NS" type. These are Amazon's name servers, and you'll need to use them for your domain.
-![Amazon name servers](/assets/images/posts/1/amazon-name-servers.png)
+![Amazon name servers](/assets/images/posts/2016-01-10-static-site/amazon-name-servers.png)
 4. Using whatever method your domain registrar exposes to you, enter these name servers into the DNS configuration for your domain. I use Namecheap, so I went to my domain list, clicked "MANAGE" next to cwhite.me, and entered the nameservers into the relevant section.
-![Namecheap name servers](/assets/images/posts/1/namecheap-nameservers.png)
+![Namecheap name servers](/assets/images/posts/2016-01-10-static-site/namecheap-nameservers.png)
 5. We'll now create a new record set to point your domain to the CloudFront distribution. Click "Create Record Set" at the top of the window in the Route 53 management console.
 6. Leave the "Name" field blank. Make sure "Type" is set to "A – IPv4 address". Under "Alias", choose "Yes", and under "Alias Target", choose the CloudFront distribution you created earlier from the dropdown. Keep the routing policy as "Simple" and choose not to "Evaluate Target Health". Finally, click "Create".
-![Route 53 to CloudFront](/assets/images/posts/1/route53-to-cloudfront.png)
+![Route 53 to CloudFront](/assets/images/posts/2016-01-10-static-site/route53-to-cloudfront.png)
 7. will take a while for the DNS changes to propagate around the internet, so you might not see your domain pointing to your static site right away. Depending on what DNS servers you're using and how hard they cache, it could take anywhere from a few minutes to a few hours. Fucking DNS, amirite?
 
 ## Setting up SSL using Let's Encrypt
@@ -132,7 +132,7 @@ cd letsencrypt
 ./letsencrypt-auto certonly -a manual -d yourdomain.com --rsa-key-size 2048 --agree-tos
 ```
 3. The Let's Encrypt client will prompt you to prove that you own the domain, by asking you to upload a file to your webspace with a given randomly generated string. It will look something like this:
-![Let's Encrypt Test](/assets/images/posts/1/letsencrypt-test.png)
+![Let's Encrypt Test](/assets/images/posts/2016-01-10-static-site/letsencrypt-test.png)
 The easiest way to pass this test is to use the S3 interface to create the required structure (in the above example, that'd be `/.well-known/acme-challenge`). Then upload the required filename (`ua4k1l22WNFZtyFjRC6kXl4UYiK9fm52ShZmkCcLdL0` in the example above) with the given content. Open the file you just uploaded in your browser to test that it works correctly, and then press enter in your terminal window to tell Let's Encrypt to proceed.
 4. If you did the above correctly, Let's Encrypt will tell you that it successfully generated a certificate for your domain, and tell you where on your computer it is. You now need to upload the generated certificate to AWS so that you can use it with your CloudFront distribution.
 5. We're going to use the handy-dandy AWS command line tools again. Run the below command in your terminal window, replacing [yourdomain.com](#) with your actual domain and `2015-01-09` with the actual date. The date is just so you have something to refer to when you update the certificate in a couple of months.
@@ -154,7 +154,7 @@ sudo aws iam upload-server-certificate \
 
 The distribution you've edited should now have a status of "In Progress". It should now be circulating your certificate around all of Amazon's edge locations, so this could take a while. Sit back and relax. Once it's done, you should be able to browse to your static site and see the certificate being used!
 
-![Let's Encrypt Certificate](/assets/images/posts/1/letsencrypt-cert.png)
+![Let's Encrypt Certificate](/assets/images/posts/2016-01-10-static-site/letsencrypt-cert.png)
 
 ## WOOP WOOP!
 
