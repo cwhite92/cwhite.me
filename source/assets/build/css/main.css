@@ -14164,6 +14164,12 @@ a {
   margin-right: auto;
 }
 
+.post iframe {
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 blockquote {
   padding: 1.5rem;
   margin-bottom: 1.5rem;

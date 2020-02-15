@@ -11,6 +11,6 @@ return [
         ],
     ],
     'excerpt' => function ($page, $characters = 600) {
-        return substr($page->getContent(), 0, $characters).'...';
+        return substr(strip_tags($page->getContent()), 0, $characters).'...';
     }
 ];

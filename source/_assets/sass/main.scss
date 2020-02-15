@@ -92,6 +92,10 @@ a {
   @apply .p-6 .mx-auto;
 }
 
+.post iframe {
+  @apply .mb-6 .mx-auto;
+}
+
 blockquote {
   @apply .p-6 .mb-6 .border .border-gray-300 .italic .text-gray-700 .text-justify;
 
