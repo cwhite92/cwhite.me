@@ -1,5 +1,7 @@
 @extends('_layouts.master')
 
+@section('title', 'Contact ∙ Chris White')
+
 @section('body')
     @include('_partials.nav')
 

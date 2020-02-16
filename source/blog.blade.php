@@ -6,6 +6,8 @@ pagination:
 
 @extends('_layouts.master')
 
+@section('title', 'Blog ∙ Chris White')
+
 @section('body')
     @include('_partials.nav')
 
