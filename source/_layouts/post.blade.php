@@ -7,11 +7,11 @@
 
     <div class="container mx-auto">
         {{-- TODO: <article> tag? --}}
-        <div class="post">
-            <div class="text-center mb-12">
+        <article class="post">
+            <header class="text-center mb-12">
                 <h1>{{ $page->title }}</h1>
-                <span class="text-gray-500">{{ $page->getDate()->format('F j, Y') }}</span>
-            </div>
+                <time datetime="{{ $page->getDate()->format('Y-m-d') }}" class="text-gray-500">{{ $page->getDate()->format('F j, Y') }}</time>
+            </header>
 
             @yield('content')
 
@@ -21,7 +21,7 @@
                 </div>
                 <div class="h-px w-full bg-gray-300" style="margin-top: -26px;"></div>
             </div>
-        </div>
+        </article>
 
         <div class="flex flex-col text-center pb-12">
             <img class="author-photo" src="/assets/images/chris.jpg" alt="Chris White">
