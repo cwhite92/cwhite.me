@@ -8,6 +8,7 @@
         <div class="post">
             <div class="text-center mb-12">
                 <h1>{{ $page->title }}</h1>
+                <span class="text-gray-500">{{ $page->getDate()->format('F j, Y') }}</span>
             </div>
 
             @yield('content')

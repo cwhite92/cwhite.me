@@ -13,7 +13,7 @@ pagination:
         @foreach ($pagination->items as $post)
             <div class="relative my-12">
                 <h1><a class="text-black border-none" href="{{ $post->getUrl() }}">{{ $post->title }}</a></h1>
-                <p>{!! $post->excerpt() !!}</p>
+                <p>{!! $post->getExcerpt() !!}</p>
                 <div class="fade"></div>
             </div>
 
