@@ -33,7 +33,11 @@ h6 {
 }
 
 p {
-  @apply .mb-6 .text-justify;
+  @apply .mb-6;
+}
+
+.post p {
+  @apply .text-justify;
 }
 
 .container {
@@ -101,5 +105,17 @@ blockquote {
 
   p {
     @apply .m-0;
+  }
+}
+
+table {
+  @apply .w-full .mb-6;
+
+  th {
+    @apply .border .border-gray-300;
+  }
+
+  td {
+    @apply .border .border-gray-300;
   }
 }

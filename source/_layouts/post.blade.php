@@ -20,9 +20,9 @@
             </div>
         </div>
 
-        <div class="flex flex-col text-center">
+        <div class="flex flex-col text-center pb-12">
             <img class="author-photo" src="/assets/images/chris.jpg" alt="Chris White">
-            <div>
+            <div class="text-center">
                 <span class="font-header text-3xl mb-2">{{ $page->author }}</span>
                 <p>Chris is a software engineer living in Ottawa. He can usually be found writing web apps with Laravel and trying to avoid JavaScript as much as possible.</p>
                 <p>He works for <a href="https://www.intouchinsight.com/">Intouch Insight</a> during the day, and is the founder of <a href="https://www.loglia.app/">Loglia</a> at night.</p>

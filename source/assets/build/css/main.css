@@ -14077,6 +14077,9 @@ h6 {
 
 p {
   margin-bottom: 1.5rem;
+}
+
+.post p {
   text-align: justify;
 }
 
@@ -14182,6 +14185,21 @@ blockquote {
 
 blockquote p {
   margin: 0;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+table th {
+  border-width: 1px;
+  border-color: #e2e8f0;
+}
+
+table td {
+  border-width: 1px;
+  border-color: #e2e8f0;
 }
 
 @media (min-width: 640px){
