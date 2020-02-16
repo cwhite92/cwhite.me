@@ -13,9 +13,10 @@ pagination:
 
     <div class="container mx-auto">
         @foreach ($pagination->items as $post)
-            <div class="relative my-12">
+            <div class="relative my-12 text-center">
                 <h1><a class="text-black border-none" href="{{ $post->getUrl() }}">{{ $post->title }}</a></h1>
-                <p>{!! $post->getExcerpt() !!}</p>
+                <p class="text-gray-500">{{ $post->getDate()->format('F j, Y') }}</p>
+                <p class="text-justify">{!! $post->getExcerpt() !!}</p>
                 <div class="fade"></div>
             </div>
 
@@ -27,7 +28,7 @@ pagination:
             </div>
         @endforeach
 
-        <div class="flex mb-4">
+        <div class="flex pb-12">
             <div class="w-1/2 text-left">
                 @if ($pagination->previous)
                     <a href="{{ $pagination->previous }}" class="p-4 border-2 border-gray-500 text-gray-500 hover:text-blue-500 hover:border-blue-500">Last page</a>
