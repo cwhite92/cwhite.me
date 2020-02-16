@@ -3,3 +3,68 @@
 command = "npm run production"
 publish = "build_production"
 environment = { PHP_VERSION = "7.2" }
+
+[[redirects]]
+    from = "/deploying-a-static-site-to-s3-and-cloudfront"
+    to = "/blog/deploying-a-static-site-to-s3-and-cloudfront"
+    status = 301
+
+[[redirects]]
+    from = "/releasing-an-open-source-package-lessons-learned"
+    to = "/blog/releasing-an-open-source-package-lessons-learned"
+    status = 301
+
+[[redirects]]
+    from = "/translating-eloquent-fields-with-mysqls-native-json-type"
+    to = "/blog/translating-eloquent-fields-with-mysqls-native-json-type"
+    status = 301
+
+[[redirects]]
+    from = "/continuous-delivery-for-your-static-site-with-codeship"
+    to = "/blog/continuous-delivery-for-your-static-site-with-codeship"
+    status = 301
+
+[[redirects]]
+    from = "/the-making-of-xkcdbot"
+    to = "/blog/the-making-of-xkcdbot"
+    status = 301
+
+[[redirects]]
+    from = "/avoiding-the-burden-of-file-uploads"
+    to = "/blog/avoiding-the-burden-of-file-uploads"
+    status = 301
+
+[[redirects]]
+    from = "/hosting-a-laravel-application-on-aws-lambda"
+    to = "/blog/hosting-a-laravel-application-on-aws-lambda"
+    status = 301
+
+[[redirects]]
+    from = "/live-http-headers-and-other-chrome-extensions-distributing-adware"
+    to = "/blog/live-http-headers-and-other-chrome-extensions-distributing-adware"
+    status = 301
+
+[[redirects]]
+    from = "/laravel-api-form-request-validation-errors"
+    to = "/blog/laravel-api-form-request-validation-errors"
+    status = 301
+
+[[redirects]]
+    from = "/laravel-scheduler-cron-job-on-elastic-beanstalk-docker-environments"
+    to = "/blog/laravel-scheduler-cron-job-on-elastic-beanstalk-docker-environments"
+    status = 301
+
+[[redirects]]
+    from = "/adding-unique-field-to-mysql-table-with-existing-records"
+    to = "/blog/adding-unique-field-to-mysql-table-with-existing-records"
+    status = 301
+
+[[redirects]]
+    from = "/disabling-html5-form-validation-for-laravel-dusk-tests"
+    to = "/blog/disabling-html5-form-validation-for-laravel-dusk-tests"
+    status = 301
+
+[[redirects]]
+    from = "/fire-and-forget-http-requests-in-php"
+    to = "/blog/fire-and-forget-http-requests-in-php"
+    status = 301
