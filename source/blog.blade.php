@@ -14,7 +14,7 @@ pagination:
     <div class="container mx-auto">
         @foreach ($pagination->items as $post)
             <div class="relative my-12 text-center">
-                <h1><a class="text-black border-none" href="{{ $post->getUrl() }}">{{ $post->title }}</a></h1>
+                <h1 class="mt-0"><a class="text-black border-none" href="{{ $post->getUrl() }}">{{ $post->title }}</a></h1>
                 <p class="text-gray-500">{{ $post->getDate()->format('F j, Y') }}</p>
                 <p class="text-justify">{!! $post->getExcerpt() !!}</p>
                 <div class="fade"></div>

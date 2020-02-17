@@ -9,7 +9,7 @@
         {{-- TODO: <article> tag? --}}
         <article class="post">
             <header class="text-center mb-12">
-                <h1>{{ $page->title }}</h1>
+                <h1 class="mt-0">{{ $page->title }}</h1>
                 <time datetime="{{ $page->getDate()->format('Y-m-d') }}" class="text-gray-500">{{ $page->getDate()->format('F j, Y') }}</time>
             </header>
 
