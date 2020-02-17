@@ -22,6 +22,7 @@ mix.js('source/_assets/js/main.js', 'js')
     .purgeCss({
         content: [
             'source/**/*.php',
+            'source/**/*.scss',
             'node_modules/highlight.js/styles/dracula.css'
         ]
     })
